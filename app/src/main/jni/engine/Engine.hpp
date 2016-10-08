@@ -26,68 +26,76 @@
 
 
 // Saved State Data
-struct saved_state
-{
-	float angle = 0.0f;
-	float x = 0.0f;
-	float y = 0.0f;
+struct saved_state {
+    float angle = 0.0f;
+    float x = 0.0f;
+    float y = 0.0f;
 };
 
-class Engine
-{
+class Engine {
 public:
-	//remove this
-	Engine() {};
-	Engine(struct android_app *app);
-	~Engine();
+    //remove this
+    Engine() { };
 
-	static void handle_cmd(struct android_app *app, int32_t cmd);
-	static int32_t handle_input(struct android_app *app, AInputEvent *event);
+    Engine(struct android_app *app);
 
-	JNI_Interface* jnii;
+    ~Engine();
 
-	void term_display();
-	int init_display();
+    static void handle_cmd(struct android_app *app, int32_t cmd);
 
-	int load_assets();
-	void unload_assets();
+    static int32_t handle_input(struct android_app *app, AInputEvent *event);
 
-	Audio_Engine* audio_engine;
+    JNI_Interface *jnii;
 
-	int init_gl();
-	void term_gl();
-	bool gl_initialized = false;
+    void term_display();
+
+    int init_display();
+
+    int load_assets();
+
+    void unload_assets();
+
+    Audio_Engine *audio_engine;
+
+    int init_gl();
+
+    void term_gl();
+
+    bool gl_initialized = false;
 
 
-	int init_data();
-	void term_data();
-	bool data_initialized = false;
+    int init_data();
 
-	void draw_frame();
+    void term_data();
 
-	void first_frame();
-	void last_frame();
+    bool data_initialized = false;
 
-	EGLDisplay egl_display = 0;
-	EGLSurface egl_surface = 0;
-	EGLContext egl_context = 0;
+    void draw_frame();
 
-	struct android_app *app;
+    void first_frame();
 
-	ASensorManager *sensor_manager;
-	//Unused accelerometer reference
-	//const ASensor *accelerometer_sensor;
-	ASensorEventQueue *sensor_event_queue;
+    void last_frame();
 
-	int32_t width;
-	int32_t height;
-	struct saved_state state;
-	//struct saved_state* state;
-	int animating;
+    EGLDisplay egl_display = 0;
+    EGLSurface egl_surface = 0;
+    EGLContext egl_context = 0;
 
-	Game* game;
+    struct android_app *app;
 
-	static float delta_time;
+    ASensorManager *sensor_manager;
+    //Unused accelerometer reference
+    //const ASensor *accelerometer_sensor;
+    ASensorEventQueue *sensor_event_queue;
+
+    int32_t width;
+    int32_t height;
+    struct saved_state state;
+    //struct saved_state* state;
+    int animating;
+
+    Game *game;
+
+    static float delta_time;
 };
 
 

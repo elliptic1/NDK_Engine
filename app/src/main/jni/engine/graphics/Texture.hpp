@@ -8,21 +8,25 @@
 #include "../common.hpp"
 #include "../File_Utils.hpp"
 
-class Texture
-{
+class Texture {
 public:
-	const char* raw_data;
-	GLuint gl_id = 0;
-	int raw_data_length = 0;
-	int width,height = 0;
-	int init_gl();
-	void term_gl();
+    const char *raw_data;
+    GLuint gl_id = 0;
+    int raw_data_length = 0;
+    int width, height = 0;
 
-	Texture(const char* filepath,int w, int h);
-	~Texture();
+    int init_gl();
+
+    void term_gl();
+
+    Texture(const char *filepath, int w, int h);
+
+    ~Texture();
+
 private:
-	int load(const char* filepath,int w, int h);
-	void unload();
+    int load(const char *filepath, int w, int h);
+
+    void unload();
 };
 
 #endif //ENGINE_TEXTURE_H

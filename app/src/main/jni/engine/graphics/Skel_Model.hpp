@@ -10,51 +10,51 @@
 #include "../File_Utils.hpp"
 #include "Skeleton.hpp"
 
-class Skel_Model
-{
+class Skel_Model {
 public:
-	unsigned int vertex_count;
-	unsigned int tri_vert_count;
+    unsigned int vertex_count;
+    unsigned int tri_vert_count;
 
 
-	const unsigned int* raw_data = NULL;
-	const float* verts;
-	const float* uv_coords;
-	const float* normals;
-	const float* tangents;
-	const float* binormals;
+    const unsigned int *raw_data = NULL;
+    const float *verts;
+    const float *uv_coords;
+    const float *normals;
+    const float *tangents;
+    const float *binormals;
 
-	const float* bone_indices;
-	const float* bone_weights;
+    const float *bone_indices;
+    const float *bone_weights;
 
-	const unsigned int* tri_verts;
+    const unsigned int *tri_verts;
 
 
-	//arrays of vertex attributes
-	//	uvs
-	//	normals
-	//		do we need tangents?
-	Skeleton* skel;
+    //arrays of vertex attributes
+    //	uvs
+    //	normals
+    //		do we need tangents?
+    Skeleton *skel;
 
-	GLuint tri_verts_buffer;
+    GLuint tri_verts_buffer;
 
-	int render(Mat4 m,Mat4 vp,Material* mat);
+    int render(Mat4 m, Mat4 vp, Material *mat);
 
-	//We will eventually need methods for combining Meshes, and copying Meshes
+    //We will eventually need methods for combining Meshes, and copying Meshes
 
-	int init_gl();
+    int init_gl();
 
-	void term_gl();
+    void term_gl();
 
-	Skel_Model(const char* filepath);
-	~Skel_Model();
+    Skel_Model(const char *filepath);
+
+    ~Skel_Model();
 
 private:
-	int load_model(const char* filepath);
-	void unload_model();
+    int load_model(const char *filepath);
+
+    void unload_model();
 
 };
-
 
 
 #endif //ENGINE_SKEL_MODEL_H

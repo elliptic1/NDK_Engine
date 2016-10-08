@@ -6,16 +6,13 @@
 #define ENGINE_SL_UTILS_H
 
 
-
-struct Stereo_Sample
-{
-	short l;
-	short r;
+struct Stereo_Sample {
+    short l;
+    short r;
 };
 
 //Nothing here yet
-class SL_Utils
-{
+class SL_Utils {
 
 };
 

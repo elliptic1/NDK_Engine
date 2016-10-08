@@ -14,10 +14,10 @@ void set_start_time();
 float time();
 
 //Prints the elements of a 4x4 matrix
-void print_mat4(float* mat);
+void print_mat4(float *mat);
 
 //Prints the elements of a 3x3 matrix
-void print_mat3(float* mat);
+void print_mat3(float *mat);
 
 
 //Unused, refer to function def as to why

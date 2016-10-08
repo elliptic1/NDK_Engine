@@ -8,18 +8,17 @@
 #include "../engine/Game_Object.hpp"
 #include "../engine/graphics/Skel_Model.hpp"
 
-class Player : public Entity
-{
+class Player : public Entity {
 public:
-	Skeleton* skel;
-	//Have to store an array of all models that make up the player
-	Skel_Model* player_model;
+    Skeleton *skel;
+    //Have to store an array of all models that make up the player
+    Skel_Model *player_model;
 
-	int render(Mat4 vp);
+    int render(Mat4 vp);
 
-	//Update method that is ran every frame
-	//Most of the actual game logic is contained here
-	int update();
+    //Update method that is ran every frame
+    //Most of the actual game logic is contained here
+    int update();
 };
 
 #endif //ENGINE_PLAYER_H

@@ -9,22 +9,25 @@
 #include "Shader.hpp"
 #include "../math/math.hpp"
 
-class Skybox
-{
+class Skybox {
 public:
-	Shader* shader;
-	Cube_Map* cube_map;
+    Shader *shader;
+    Cube_Map *cube_map;
 
-	GLuint tri_verts_buffer;
-	//Due to simplicity of skybox, we don't require a skybox material, and it can hold its own shaders
-	Skybox();
-	~Skybox();
+    GLuint tri_verts_buffer;
 
-	int init_gl();
-	void term_gl();
-	int set_cube_map(Cube_Map* map);
+    //Due to simplicity of skybox, we don't require a skybox material, and it can hold its own shaders
+    Skybox();
 
-	int render(Mat4 v_matrix);
+    ~Skybox();
+
+    int init_gl();
+
+    void term_gl();
+
+    int set_cube_map(Cube_Map *map);
+
+    int render(Mat4 v_matrix);
 };
 
 #endif //ENGINE_SKYBOX_H

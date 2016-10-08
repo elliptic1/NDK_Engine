@@ -7,38 +7,40 @@
 #ifndef ENGINE_MATERIAL_H
 #define ENGINE_MATERIAL_H
 
-class Material
-{
+class Material {
 public:
-	//We need to keep track of all of the fixed parameters and all of the varying parameters
-	Material();
-	~Material();
+    //We need to keep track of all of the fixed parameters and all of the varying parameters
+    Material();
 
-	Shader* shader;
-	//has all parameters of shader (textures, color values, other parameters)
-	void** alloced_params;//parameters we have allocated
-	void** params;//pointers to externally allocated memory
-	uint param_count;
+    ~Material();
 
-	//Assigns shader value and creates params array
-	int set_shader(Shader* shad);
+    Shader *shader;
+    //has all parameters of shader (textures, color values, other parameters)
+    void **alloced_params;
+    //parameters we have allocated
+    void **params;
+    //pointers to externally allocated memory
+    uint param_count;
 
-	//Have the material hold a shader parameter (copies and holds the data)
-	int set_fixed_shader_param(GLint type, void* value, int param_length);
+    //Assigns shader value and creates params array
+    int set_shader(Shader *shad);
 
-	//Have the material hold a shader parameter pointer (holds a pointer to the data)
-	int set_fixed_shader_param_ptr(GLint type, void* value);
+    //Have the material hold a shader parameter (copies and holds the data)
+    int set_fixed_shader_param(GLint type, void *value, int param_length);
 
-	//Sets material for use by renderer
-	int bind_material();
+    //Have the material hold a shader parameter pointer (holds a pointer to the data)
+    int set_fixed_shader_param_ptr(GLint type, void *value);
 
-	//Pass arbitrary value directly to the shader
-	int bind_value(GLuint type, void* value);
+    //Sets material for use by renderer
+    int bind_material();
 
-	int bind_values(GLuint type, void* value, int count);
+    //Pass arbitrary value directly to the shader
+    int bind_value(GLuint type, void *value);
+
+    int bind_values(GLuint type, void *value, int count);
 
 private:
-	void clear_all_params();
+    void clear_all_params();
 };
 
 #endif //ENGINE_MATERIAL_H

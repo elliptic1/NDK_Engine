@@ -7,14 +7,13 @@
 
 #include "../common.hpp"
 
-class GL_Utils
-{
+class GL_Utils {
 public:
-	static GLuint load_shader (const char *shader_src, const char *shader_path, GLenum type);
+    static GLuint load_shader(const char *shader_src, const char *shader_path, GLenum type);
 
-	static void unload_shader (GLuint shader);
+    static void unload_shader(GLuint shader);
 
-	static GLenum tex_index_to_enum(int i);
+    static GLenum tex_index_to_enum(int i);
 };
 
 #endif //ENGINE_GL_UTILS_H
